@@ -177,6 +177,8 @@ share /home/share/ 9p trans=virtio,version=9p2000.L,nobootwait,rw,_netdev 0 0
 
 ## IP アドレスの変更＋固定化(guest)
 
+_netplan を書くときに dhcp を無効(false)にすることを忘れずに_
+
 ```shell
 root@ubuntu2204:/home$ ip a
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -202,6 +204,8 @@ network:
   renderer: networkd
   ethernets:
     enp1s0:
+      dhcp4: false
+      dhcp6: false
       addresses:
         - 192.168.122.181/24
       routes:
@@ -222,8 +226,6 @@ root@ubuntu2204:/etc/netplan$ ip a
     link/ether 52:54:00:13:02:cf brd ff:ff:ff:ff:ff:ff
     inet 192.168.122.181/24 brd 192.168.122.255 scope global enp1s0
        valid_lft forever preferred_lft forever
-    inet 192.168.122.180/24 metric 100 brd 192.168.122.255 scope global secondary dynamic enp1s0
-       valid_lft 2962sec preferred_lft 2962sec
     inet6 fe80::5054:ff:fe13:2cf/64 scope link
        valid_lft forever preferred_lft forever
 ```
