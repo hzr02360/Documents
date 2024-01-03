@@ -20,8 +20,8 @@ _リンクがないところは今後追加予定（いつできるのか…？�
 - [kubernetes まとめ](2.Kubernetes/01.cheatsheet.md)
 - [kubernetes チュートリアル](https://kubernetes.io/ja/docs/tutorials/)の実行記録
   - [kubernetes の基本](2.Kubernetes/02.01_basic.md)
-  - [ConfigMap を使った Redis の設定](2.Kubernetes/02.02_configration.md)
-  - [ConfigMap の基本](2.Kubernetes/02.03_configmap.md)
+  - [ConfigMap の基本](2.Kubernetes/02.02.1_configmap.md)
+  - [ConfigMap を使った Redis の設定](2.Kubernetes/02.02.2_configmap.md)
   - ステートレスアプリケーション
   - ステートフルアプリケーション
   - サービス
