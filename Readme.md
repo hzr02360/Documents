@@ -21,7 +21,7 @@ _リンクがないところは今後追加予定（いつできるのか…？�
 - [kubernetes の基本](2.Kubernetes/02.01_basic.md)
 - [ConfigMap の基本](2.Kubernetes/02.02.1_configmap.md)
 - [ConfigMap を使った Redis の設定](2.Kubernetes/02.02.2_configmap.md)
-- サービス
+- [kubernetes のサービス](2.Kubernetes/02.03_service.md)
 - ジョブ
 - ステートフルアプリケーション
 - セキュリティ
