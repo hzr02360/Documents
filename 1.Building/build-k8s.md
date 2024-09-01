@@ -400,6 +400,36 @@ Filesystem                         Size  Used Avail Use% Mounted on
 /dev/mapper/ubuntu--vg-ubuntu--lv  8.1G  4.5G  3.2G  59% /
 ```
 
+## kubernetes リポジトリ変更
+
+### ゲスト
+
+```shell
+bravog@ubuntu2204:~$ echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+[sudo] password for bravog:
+deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /
+```
+
+```shell
+bravog@ubuntu2204:~$ curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+```
+
+```shell
+bravog@ubuntu2204:~$ sudo apt update
+Get:1 https://prod-cdn.packages.k8s.io/repositories/isv:/kubernetes:/core:/stable:/v1.28/deb  InRelease [1,189 B]
+Get:2 https://prod-cdn.packages.k8s.io/repositories/isv:/kubernetes:/core:/stable:/v1.28/deb  Packages [13.9 kB]
+Hit:3 http://jp.archive.ubuntu.com/ubuntu jammy InRelease
+Get:4 http://jp.archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]
+Hit:5 http://jp.archive.ubuntu.com/ubuntu jammy-backports InRelease
+Get:6 http://jp.archive.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+Get:7 http://jp.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [1,612 kB]
+Fetched 1,856 kB in 4s (484 kB/s)
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+5 packages can be upgraded. Run 'apt list --upgradable' to see them.
+```
+
 ## 仮想マシン個別設定
 
 ### マスタノードの設定
